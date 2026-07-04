@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>電卓</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-scene" aria-hidden="true">
+    <div class="bg-image"></div>
+    <div class="bg-sunlight"></div>
+    <div class="bg-cloud bg-cloud-1"></div>
+    <div class="bg-cloud bg-cloud-2"></div>
+    <div class="bg-cloud bg-cloud-3"></div>
+    <div class="bg-grass">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="bg-pollen">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="app">
+    <div class="calculator">
+      <header class="calc-header">
+        <h1 class="calc-title">電卓</h1>
+        <button class="history-toggle" id="historyToggle" type="button" aria-label="履歴を開く">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span>履歴</span>
+          <span class="history-badge" id="historyBadge" hidden>0</span>
+        </button>
+      </header>
+
+      <div class="display">
+        <div class="expression" id="expression"></div>
+        <div class="result" id="result">0</div>
+      </div>
+
+      <div class="buttons">
+        <button class="btn btn-function" data-action="clear">AC</button>
+        <button class="btn btn-function" data-action="toggle-sign">±</button>
+        <button class="btn btn-function" data-action="percent">%</button>
+        <button class="btn btn-operator" data-action="operator" data-value="/">÷</button>
+
+        <button class="btn btn-number" data-action="number" data-value="7">7</button>
+        <button class="btn btn-number" data-action="number" data-value="8">8</button>
+        <button class="btn btn-number" data-action="number" data-value="9">9</button>
+        <button class="btn btn-operator" data-action="operator" data-value="*">×</button>
+
+        <button class="btn btn-number" data-action="number" data-value="4">4</button>
+        <button class="btn btn-number" data-action="number" data-value="5">5</button>
+        <button class="btn btn-number" data-action="number" data-value="6">6</button>
+        <button class="btn btn-operator" data-action="operator" data-value="-">−</button>
+
+        <button class="btn btn-number" data-action="number" data-value="1">1</button>
+        <button class="btn btn-number" data-action="number" data-value="2">2</button>
+        <button class="btn btn-number" data-action="number" data-value="3">3</button>
+        <button class="btn btn-operator" data-action="operator" data-value="+">+</button>
+
+        <button class="btn btn-number btn-zero" data-action="number" data-value="0">0</button>
+        <button class="btn btn-number" data-action="decimal">.</button>
+        <button class="btn btn-operator btn-equals" data-action="equals">=</button>
+      </div>
+    </div>
+
+    <div class="history-overlay" id="historyOverlay" hidden></div>
+
+    <aside class="history-panel" id="historyPanel" aria-hidden="true">
+      <div class="history-handle" aria-hidden="true"></div>
+      <div class="history-header">
+        <h2>計算履歴</h2>
+        <button class="history-clear" id="historyClear" type="button">すべて削除</button>
+      </div>
+      <ul class="history-list" id="historyList">
+        <li class="history-empty">履歴はありません</li>
+      </ul>
+    </aside>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
